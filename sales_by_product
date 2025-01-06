@@ -1,0 +1,2 @@
+sales_by_product = sales_data.groupby('ProductName')['TotalAmount'].sum().reset_index()
+print(sales_by_product)
