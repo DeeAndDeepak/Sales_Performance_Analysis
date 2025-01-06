@@ -1,0 +1,20 @@
+-- Sample Products
+INSERT INTO Products (ProductID, ProductName, Category, Price) VALUES 
+(1, 'Laptop', 'Electronics', 1200.00),
+(2, 'Phone', 'Electronics', 700.00),
+(3, 'Desk', 'Furniture', 250.00);
+
+-- Sample Customers
+INSERT INTO Customers (CustomerID, CustomerName, Email, Phone) VALUES 
+(1, 'John Doe', 'john@example.com', '123-456-7890'),
+(2, 'Jane Smith', 'jane@example.com', '987-654-3210');
+
+-- Sample Salesperson
+INSERT INTO Salesperson (SalespersonID, SalespersonName, Region) VALUES 
+(1, 'Alice', 'North'),
+(2, 'Bob', 'South');
+
+-- Sample Sales
+INSERT INTO Sales (ProductID, CustomerID, SalespersonID, SaleDate, Quantity, TotalAmount) VALUES 
+(1, 1, 1, '2023-10-01', 2, 2400.00),
+(2, 2, 2, '2023-10-02', 1, 700.00);
