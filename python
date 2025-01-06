@@ -1,0 +1,22 @@
+pip install pandas sqlalchemy pymysql
+
+import pandas as pd
+from sqlalchemy import create_engine
+
+# Establish connection to MySQL database
+engine = create_engine('mysql+pymysql://username:password@localhost/SalesDB')
+
+# Query the sales data
+sales_query = """
+SELECT s.SaleID, s.SaleDate, p.ProductName, p.Category, s.Quantity, s.TotalAmount, c.CustomerName, sp.SalespersonName
+FROM Sales s
+JOIN Products p ON s.ProductID = p.ProductID
+JOIN Customers c ON s.CustomerID = c.CustomerID
+JOIN Salesperson sp ON s.SalespersonID = sp.SalespersonID;
+"""
+
+# Load data into pandas DataFrame
+sales_data = pd.read_sql(sales_query, engine)
+
+# Check the first few rows of the data
+print(sales_data.head())
