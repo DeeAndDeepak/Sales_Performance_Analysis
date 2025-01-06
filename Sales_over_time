@@ -1,0 +1,3 @@
+sales_data['SaleDate'] = pd.to_datetime(sales_data['SaleDate'])
+sales_by_date = sales_data.groupby(sales_data['SaleDate'].dt.to_period('M'))['TotalAmount'].sum().reset_index()
+print(sales_by_date)
