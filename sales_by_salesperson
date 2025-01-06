@@ -1,0 +1,2 @@
+sales_by_salesperson = sales_data.groupby('SalespersonName')['TotalAmount'].sum().reset_index()
+print(sales_by_salesperson)
