@@ -1,0 +1,40 @@
+REATE DATABASE SalesDB;
+
+USE SalesDB;
+
+-- Create Products Table
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    Category VARCHAR(50),
+    Price DECIMAL(10, 2)
+);
+
+-- Create Customers Table
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(100),
+    Email VARCHAR(100),
+    Phone VARCHAR(15)
+);
+
+-- Create Salesperson Table
+CREATE TABLE Salesperson (
+    SalespersonID INT PRIMARY KEY,
+    SalespersonName VARCHAR(100),
+    Region VARCHAR(50)
+);
+
+-- Create Sales Table
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY AUTO_INCREMENT,
+    ProductID INT,
+    CustomerID INT,
+    SalespersonID INT,
+    SaleDate DATE,
+    Quantity INT,
+    TotalAmount DECIMAL(10, 2),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+    FOREIGN KEY (SalespersonID) REFERENCES Salesperson(SalespersonID)
+);
